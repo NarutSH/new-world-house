@@ -5,28 +5,33 @@ import ProjectCard from "../Elements/ProjectCard";
 const Home = () => {
   const styles = {
     bannerContainer: {
-      height: "500px",
+      height: "100vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
     },
     bannerFooter: {
       fontWeight: "400",
-      fontSize: "32px",
+      fontSize: "clamp(20px, 2vw, 40px)",
       fontStyle: "italic",
+      textAlign: "center",
     },
     bannerButton: {
-      fontSize: "18px",
+      fontSize: "clamp(20px, 2vw, 40px)",
       fontWeight: "300",
     },
   };
 
   const displayBanner = (
-    <div style={styles.bannerContainer}>
+    <div className="container">
       <div>
         <div className="text-center lh-1">
-          <div style={{ fontSize: "50px" }}>PRODUCTION HOUSE</div>
-          <div style={{ fontSize: "85px", fontWeight: "bold" }}>
+          <div style={{ fontSize: "clamp(30px, 3vw, 85px)" }}>
+            PRODUCTION HOUSE
+          </div>
+          <div
+            style={{ fontSize: "clamp(40px, 5vw, 170px)", fontWeight: "bold" }}
+          >
             IN METAVERSE
           </div>
         </div>
@@ -49,21 +54,25 @@ const Home = () => {
 
   return (
     <div>
-      <div>{displayBanner}</div>
+      <section id="banner-section" style={styles.bannerContainer}>
+        {displayBanner}
+      </section>
       <section id="project-section">
-        <ProjectCard
-          title="UNKNOWN PLANET"
-          date="2022"
-          concept="There are still many planets in the galaxy that are waiting for you."
-          imgPath="/assets/images/project1.png"
-        />
-        <ProjectCard
-          title="METAVERSE YOUTUBE"
-          date="2022"
-          concept="Metaverse youtube entertainment channel"
-          imgPath="/assets/images/project2.png"
-          reverse
-        />
+        <div>
+          <ProjectCard
+            title="UNKNOWN PLANET"
+            date="2022"
+            concept="There are still many planets in the galaxy that are waiting for you."
+            imgPath="/assets/images/project1.png"
+          />
+          <ProjectCard
+            title="METAVERSE YOUTUBE"
+            date="2022"
+            concept="Metaverse youtube entertainment channel"
+            imgPath="/assets/images/project2.png"
+            reverse
+          />
+        </div>
       </section>
       <section id="solution-section">
         <SolutionComponent />

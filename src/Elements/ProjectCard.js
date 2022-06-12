@@ -4,45 +4,48 @@ const ProjectCard = ({ title, date, concept, imgPath, reverse }) => {
   const styles = {
     cardContainer: {},
     cardTitle: {
-      fontSize: "72px",
+      fontSize: "clamp(40px, 3vw, 70px)",
       fontWeight: "800",
       textTransform: "capitalize",
     },
     cardType: {
-      fontSize: "50px",
+      fontSize: "clamp(30px, 2vw, 50px)",
       fontWeight: "800",
       textTransform: "capitalize",
     },
     cardDate: {
-      fontSize: "31px",
+      fontSize: "clamp(20px, 1vw, 31px)",
       fontWeight: "400",
       textTransform: "capitalize",
     },
     cardConcept: {
       marginTop: "10px",
-      fontSize: "24px",
+      fontSize: "clamp(20px, 1vw, 31px)",
       fontWeight: "300",
     },
     img: {
       position: "absolute",
-      width: "564px",
-      height: "512px",
+      height: "80%",
+      width: "80%",
+      objectFit: "cover",
       right: "0",
       top: "0",
     },
     borderBox: {
-      border: "1.49803px solid #FFFFFF",
+      border: "1.5px solid #FFFFFF",
       position: "absolute",
-
       left: "0%",
-      right: "7.17%",
-      top: " 39.53%",
-      bottom: "0%",
+      right: "20%",
+      top: " 20%",
+      bottom: "0",
     },
     imgContainer: {
       position: "relative",
-      width: "614px",
-      height: "635px",
+      width: "100%",
+      height: "100%",
+      minHeight: "400px",
+      maxWidth: "400px",
+      margin: "auto",
     },
   };
 
@@ -71,18 +74,18 @@ const ProjectCard = ({ title, date, concept, imgPath, reverse }) => {
 
   const displayCard = (
     <div className="my-5 container-fluid " style={styles.cardContainer}>
-      <div
-        className={`d-flex justify-content-between justify-content-lg-center flex-wrap ${
-          reverse ? "flex-row-reverse" : "flex-row"
-        }`}
-      >
-        {displayDetails}
-        {displayImg}
+      <div className={`row h-100`}>
+        <div className={`col-lg-8 ${reverse ? "order-lg-2" : "order-lg-1"}`}>
+          {displayDetails}
+        </div>
+        <div className={`col-lg-4 ${reverse ? "order-lg-1" : "order-lg-2"}`}>
+          {displayImg}
+        </div>
       </div>
     </div>
   );
 
-  return <div>{displayCard}</div>;
+  return <div className="container">{displayCard}</div>;
 };
 
 export default ProjectCard;

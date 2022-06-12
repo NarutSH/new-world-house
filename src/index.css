@@ -8,3 +8,22 @@ body {
   background: rgba(7, 7, 7, 1);
   color: #fff;
 }
+
+.card-solution-container .card-solution-list {
+  display: none;
+}
+
+.card-solution-container:hover .card-solution-title {
+  display: none;
+}
+
+.card-solution-container:hover .card-solution-list {
+  display: block;
+}
+.card-solution-container:hover .card-solution-image {
+  filter: grayscale(100%) blur(2px);
+}
+
+.card-solution-image {
+  filter: grayscale(100%);
+}
